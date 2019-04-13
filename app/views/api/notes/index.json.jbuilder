@@ -1,0 +1,7 @@
+json.array! @notes do |note|
+  json.extract! note, :id, :description, :note, :updated_at
+  json.tags note.tags do |tag|
+    json.id tag.id
+    json.name tag.name
+  end
+end

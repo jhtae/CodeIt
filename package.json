@@ -9,10 +9,17 @@
     "lodas": "^1.2.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-highlight": "^0.12.0",
     "react-redux": "^6.0.1",
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
+  },
+  "devDependencies": {
+    "css-loader": "^2.1.1",
+    "style-loader": "^0.23.1"
   }
 }
