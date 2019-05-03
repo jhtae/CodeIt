@@ -1,48 +1,50 @@
 import React from 'react';
-import TagIndex from '../tag_index/tag_index';
-import 'highlight.js/styles/monokai.css';
 
+import TagIndex from '../tag_index/tag_index_container';
+import hljs from 'highlight.js';
+
+import 'highlight.js/styles/monokai.css';
+import './note_index.scss';
 class NoteIndex extends React.Component {
   constructor(props) {
     super(props);
   }
-  
+
   componentDidMount() {
-    const script = document.createElement("script");
-    script.src = "/highlight.pack.js";
-    script.async = true;
-
-    document.body.appendChild(script);
     hljs.initHighlightingOnLoad();
-    document.querySelectorAll('#codeblock').forEach((block) => {
-      hljs.highlightBlock(block);
-    });
-    <script>hljs.initHighlightingOnLoad();</script>
-
+    this.updateCodeSyntaxHighlighting();
   }
 
   componentDidUpdate(props, state) {
-    if (this.props.notes.length !== props.notes.length) {
-      document.querySelectorAll('#codeblock').forEach((block) => {
-        hljs.highlightBlock(block);
-      });
-    }
+    this.updateCodeSyntaxHighlighting();
   }
+
+  handleClick(e, note) {
+    e.preventDefault();
+    this.props.updateSelectedNote(note)
+  }
+
+  updateCodeSyntaxHighlighting() {
+    let codeblocks = document.querySelectorAll("pre code")
+    codeblocks.forEach(block => {
+      block.className = 'hljs';
+      hljs.highlightBlock(block);
+    });
+  };
 
   render() {
     const { notes } = this.props;
     let noteIndex = notes.map((note) => {
-      console.log(note)
       return (
-        <li>
-          <div>{note.description}</div>
-          <pre id="codeblock" style={{ whiteSpace: "pre-wrap" }}><code>{note.note}</code></pre>
-          <TagIndex tags={note.tags} />
+        <li className='note_item'>
+          <div className='note_description'>{note.description}</div>
+          <pre id="codeblock" onClick={e => this.handleClick(e, note)} style={{ whiteSpace: "pre-wrap" }}><code dangerouslySetInnerHTML={{ __html: note.note }}></code></pre>
+          <TagIndex tags={note.tags} updateFilters={this.props.updateFilters} />
         </li>
       )
     })
     return (
-      <section>
+      <section className='note_index' >
         <ul>
           {noteIndex}
         </ul>

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Main from './main';
 import { fetchUserNotes } from '../../actions/note_actions';
+import { fetchNotesByTags } from '../../actions/note_actions';
 
 const mapStateToProps = (state) => ({
   user: state.session,
@@ -12,7 +13,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchUserNotes: (user_id) => dispatch(fetchUserNotes(user_id))
+  fetchUserNotes: (user_id) => dispatch(fetchUserNotes(user_id)),
+  filterNotesByTags: tags => dispatch(fetchNotesByTags(tags)),
 });
 
 

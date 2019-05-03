@@ -1,0 +1,21 @@
+.note_index {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: 0px 20px 20px 20px;
+  height: calc(100% - 50px);
+  overflow-y: scroll;
+}
+
+.note_description {
+  padding-top: 10px;
+}
+
+.note_item #codeblock{
+  max-height: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: .5em;
+  margin: .5em 0;
+  cursor: pointer;
+}

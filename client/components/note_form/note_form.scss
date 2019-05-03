@@ -1,0 +1,51 @@
+.note_form {
+  display: flex;
+  flex-direction: column;
+  width: calc(100vw - 200px - 400px);
+  padding: 20px
+}
+
+.code_display {
+  display: flex;
+  height: 30%;
+  width: 100%;
+}
+
+#codeblock_form {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.description_input {
+  border: 1px solid black;
+}
+.note_input {
+  display: flex;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 15px;
+  height: 70%;
+  padding: 20px;
+  resize: none;
+}
+
+.tag_input {
+  width: 100%;
+}
+
+.note_form .tag_index {
+  min-height: 18px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.submit {
+  padding: 3px 10px;
+  background: black;
+  color: white;
+  border-radius: 50px;
+}

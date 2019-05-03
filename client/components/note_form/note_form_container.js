@@ -5,11 +5,10 @@ import { Link } from 'react-router-dom';
 import NoteForm from './note_form';
 import { createNote } from '../../actions/note_actions';
 
-const mapStateToProps = (state) => {
-  return {
-    notes: state.entities.notes,
-  };
-};
+const mapStateToProps = (state) => ({
+  selectedNote: state.entities.selectedNote,
+  userId: state.session.id
+});
 
 const mapDispatchToProps = dispatch => ({
   createNote: (note) => dispatch(createNote(note))

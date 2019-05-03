@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Sidebar from './sidebar';
+import { fetchNotebooksByUser } from '../../actions/notebook_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -12,9 +13,8 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  fetchNotebooksByUser: (user_id) => dispatch(fetchNotebooksByUser(user_id)),
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

@@ -1,0 +1,15 @@
+.tag_index {
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 3px 10px;
+  background: black;
+  color: white;
+  border-radius: 50px;
+  margin-right: 5px;
+  cursor: pointer;
+}

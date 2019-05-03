@@ -6,10 +6,22 @@ export const fetchUserNotes = user_id => (
   })
 );
 
-export const createNote = note => (
+export const fetchNotesByTags = tags => (
   $.ajax({
-    method: 'POST',
+    method: 'GET',
     url: '/api/notes',
-    data: { note }
+    data: { tags }
   })
 );
+
+export const createNote = note => {
+  return (
+    $.ajax({
+      method: 'POST',
+      url: '/api/notes',
+      data: JSON.stringify({ note }),
+      dataType: 'json',
+      contentType: 'application/json',
+    })
+  )
+}
